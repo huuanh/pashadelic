@@ -1,0 +1,62 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.title-category-index {
+  border-bottom: 2px solid lightgray;
+  margin-bottom: 30px;
+}
+
+.list-categories {
+  border-bottom: 1px solid lightgray;
+}
+
+.category-name {
+  float: left;
+  margin-right: 10px;
+  font-size: 150%;
+  a {
+    padding: 3px;
+    color: #2E2F30;
+    background-color: lightgray;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: #2E2F30;
+    color: white;
+  }
+}
+
+.description-image {
+  background-color: #FFF;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+.category-index-main-div {
+  padding: 3px !important;
+  margin-top: 30px !important;
+  .img-on-category-index {
+    position: relative;
+    img {
+      width: 100%;
+    }
+    i {
+      padding: 10px;
+      background-color: rgba(46, 47, 48, 0.58);
+      color: #3c763d;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      border-radius: 4px;
+      :hover {
+        background-color: #3c763d;
+      }
+    }
+  }
+}

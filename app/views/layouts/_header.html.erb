@@ -1,0 +1,29 @@
+<div class="navbar navbar-fixed-top my-nav">
+  <div class="container clearfix">
+    <div class="my-navbar-left">
+      <a href="<%= root_path %>">
+        <div class="logo"><img src="http://assets.pashadelic.com/assets/common/pashadelic_logo.png"></div>
+      </a>
+      <div class="search-form">
+        <%= form_tag search_path, method: :get do %>
+            <i class="fa fa-picture-o"></i>
+            <%= text_field_tag :query, params[:query], placeholder: 'Find inspiring photos' %>
+            <button type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="nav navbar-nav my-navbar-right">
+      <% if current_user %>
+          <%= link_to '<i class="fa fa-upload"></i>'.html_safe, new_image_path, class: 'icon-upload' %>
+          <%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, logout_path, :method => :delete, class: 'icon-upload' %>
+      <% else %>
+          <%= link_to '<i class="fa fa-user-plus"></i>'.html_safe, new_user_path, class: 'icon-upload' %>
+          <%= link_to '<i class="fa fa-sign-in"></i>'.html_safe, login_path, class: 'icon-upload' %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

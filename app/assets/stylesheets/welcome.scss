@@ -1,0 +1,33 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #F2F2F2;
+}
+
+.row, .col-md-4 {
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  float: left;
+}
+
+.search-form {
+  margin: 7px 0 0 200px;
+  float: left;
+  .fa-picture-o {
+    padding: 6px;
+    background-color: lightgray;
+  }
+}
+
+.my-navbar-right {
+  float: right;
+}
+
+.my-navbar-left {
+  float: left;
+}
