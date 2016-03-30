@@ -41,10 +41,10 @@
         <div class="user-images" id="user-image-<%= image.id %>">
           <%= image_tag image.img_url.thumb.url %>
           <div class="user-img-info" id="user-img-<%= image.id %>">
-            <%= 'uploaded' + image.created_at.strftime(" %H:%m %a %d %b %Y") %> <br>
+            <%= 'uploaded' + image.created_at.strftime(" %H:%m %a, %d %b %Y") %> <br>
             <i class="fa fa-folder-o"></i><%= '0 collect' %> <br>
-            <i class="fa fa-thumbs-o-up"></i><%= '0 like' %> <br>
-            <i class="fa fa-comment"></i><%= '0 comment' %>
+            <i class="fa fa-thumbs-o-up"></i><%= image.total_like.to_s + ' like' %> <br>
+            <i class="fa fa-comment"></i><%= image.total_comment.to_s + ' comment' %>
             <div class="user-img-action">
               <%= link_to 'Edit', edit_image_path(image) %>
               <%= link_to 'View', image_path(image) %>
