@@ -26,40 +26,11 @@
   </div>
   <div class="user-member row">
     <ul class="nav nav-tabs" role="tablist">
-      <li class="active"><a href="<%= user_url(@user) %>">Photo Spots</a></li>
+      <li><a href="<%= user_url(@user) %>">Photo Spots</a></li>
       <li><a href="<%= collection_user_url(@user) %>">Collection</a></li>
       <li><a href="<%= about_user_url(@user) %>">About</a></li>
-      <li><a href="<%= followers_user_url(@user) %>">Followers</a></li>
+      <li class="active"><a href="<%= followers_user_url(@user) %>">Followers</a></li>
       <li><a href="<%= followings_user_url(@user) %>">Followings</a></li>
     </ul>
   </div>
-</div>
-
-<div class="body-layout-user row">
-  <% @images.each do |image| %>
-      <div class="row col-md-3">
-        <div class="user-images" id="user-image-<%= image.id %>">
-          <%= image_tag image.img_url.thumb.url %>
-          <div class="user-img-info" id="user-img-<%= image.id %>">
-            <%= 'uploaded' + image.created_at.strftime(" %H:%m %a %d %b %Y") %> <br>
-            <i class="fa fa-folder-o"></i><%= '0 collect' %> <br>
-            <i class="fa fa-thumbs-o-up"></i><%= '0 like' %> <br>
-            <i class="fa fa-comment"></i><%= '0 comment' %>
-            <div class="user-img-action">
-              <%= link_to 'Edit', edit_image_path(image) %>
-              <%= link_to 'View', image_path(image) %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <script>
-        $('#user-image-<%= image.id %>').hover(function(){
-          $('.user-img-info').hide();
-          $('#user-img-<%= image.id %>').show();
-        });
-        $('body').hover(function(){
-          $('.user-img-info').hide();
-        });
-      </script>
-  <% end %>
 </div>

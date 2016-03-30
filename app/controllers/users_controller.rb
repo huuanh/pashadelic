@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :about, :collection, :followers, :followings]
 
   def index
     @users = User.all
   end
 
   def show
+    @images = Image.where(user: @user)
   end
 
   def new
@@ -42,6 +43,18 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
     end
+  end
+
+  def collection
+  end
+
+  def about
+  end
+
+  def followers
+  end
+
+  def followings
   end
 
   private

@@ -7,7 +7,14 @@ Rails.application.routes.draw do
 
   get 'search' => 'images#search'
   resources :categories
-  resources :users
+  resources :users do
+    member do
+      get 'collection' => 'users#collection'
+      get 'about' => 'users#about'
+      get 'followers' => 'users#followers'
+      get 'followings' => 'users#followings'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
