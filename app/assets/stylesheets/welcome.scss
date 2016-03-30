@@ -26,6 +26,13 @@ body {
 
 .my-navbar-right {
   float: right;
+  .dropdown-menu {
+    right: 5%;
+    left: auto;
+  }
+  .dropdown-toggle {
+    position: relative;
+  }
 }
 
 .my-navbar-left {

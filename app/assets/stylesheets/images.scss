@@ -20,3 +20,17 @@
 .margin-nav {
   margin-top: 100px;
 }
+
+//---------SEARCH RESULT--------------
+.list-images-result {
+  .col-md-3 {
+    padding: 0;
+  }
+  .image-result {
+    padding-right: 15px;
+    img {
+      width: 100%;
+    }
+    margin: 10px 0;
+  }
+}

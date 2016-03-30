@@ -1,0 +1,8 @@
+<h3><%='Found for: ' + @query %></h3>
+<div class="list-images-result row">
+  <% @images.each do |image| %>
+      <div class="image-result col col-md-3">
+        <%= image_tag(image.img_url.thumb.url) %>
+      </div>
+  <% end %>
+</div>

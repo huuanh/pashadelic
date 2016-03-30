@@ -48,6 +48,8 @@ class ImagesController < ApplicationController
   end
 
   def search
+    @query = params[:query]
+    @images = Image.where('description LIKE ?', "%#{params[:query]}%").paginate(:page => params[:page], :per_page => 9)
   end
 
   private
@@ -56,6 +58,6 @@ class ImagesController < ApplicationController
     end
 
     def image_params
-      params.require(:image).permit(:category_id, :img_url)
+      params.require(:image).permit(:category_id, :img_url, :description)
     end
 end

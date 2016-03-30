@@ -6,6 +6,10 @@
           <%= f.collection_select :category_id, Category.all,:id,:name, include_blank: true, class: 'form-control' %>
         </div>
         <div class="field">
+          <%= f.label :description %><br>
+          <%= f.text_field :description, class: 'form-control' %>
+        </div>
+        <div class="field">
           <%= f.label :img_url %><br>
           <%= f.file_field :img_url, class: 'form-control' %>
         </div>

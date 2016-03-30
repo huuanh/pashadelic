@@ -6,8 +6,16 @@ class Image < ActiveRecord::Base
 
   validate :image_size_validation
 
+  def total_like
+    Liked.where(image: self).count
+  end
+
+  def total_comment
+    Comment.where(image: self).count
+  end
+
   private
   def image_size_validation
-    errors[:image] << "should be less than 500KB" if img_url.size > 0.5.megabytes
+    errors[:image] << "should be less than 1MB" if img_url.size > 1.megabytes
   end
 end

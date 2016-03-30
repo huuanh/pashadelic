@@ -18,7 +18,12 @@
     <div class="nav navbar-nav my-navbar-right">
       <% if current_user %>
           <%= link_to '<i class="fa fa-upload"></i>'.html_safe, new_image_path, class: 'icon-upload' %>
-          <%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, logout_path, :method => :delete, class: 'icon-upload' %>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user icon-upload"></i><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<%= user_url(current_user) %>">My page</a></li>
+            <li><a href="#">Setting</a></li>
+            <li><%= link_to 'Logout', logout_url, method: :delete %></li>
+          </ul>
       <% else %>
           <%= link_to '<i class="fa fa-user-plus"></i>'.html_safe, new_user_path, class: 'icon-upload' %>
           <%= link_to '<i class="fa fa-sign-in"></i>'.html_safe, login_path, class: 'icon-upload' %>
