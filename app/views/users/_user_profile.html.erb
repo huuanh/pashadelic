@@ -1,0 +1,26 @@
+<div class="banner-user row">
+  <img src="http://rockymountainnationalpark.com/sites/all/themes/rmnp/images/bugling-elk-rocky-mountain-national-park.jpg" alt="banner">
+  <%= link_to 'change image banner', '#', class: 'change-image' %>
+</div>
+<div class="user-info row">
+  <div class="col col-md-4 div-border-right">
+    <div class="user-avatar col-md-4">
+      <%= image_tag(user.avatar_url) %>
+    </div>
+    <div class="user-name col-md-8">
+      <%= render 'follow_button', user: user %>
+      <p><%= link_to user.name, user_path(user) %></p>
+      <%= user.total_images.to_s + ' photos | ' + user.count_followers.to_s + ' follow' %>
+    </div>
+  </div>
+  <div class="col col-md-4 div-border-right">
+    <h4>Equipment</h4>
+    <h5>Camera</h5>
+    <h5>Len</h5>
+  </div>
+  <div class="col col-md-4">
+    <h4>Recent Activitys</h4>
+    <h5>Collected yutaka.miura.503's photo</h5>
+    <h5>Collected yutaka.miura.503's photo</h5>
+  </div>
+</div>

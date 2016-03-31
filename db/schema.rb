@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330082741) do
+ActiveRecord::Schema.define(version: 20160331023026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20160330082741) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id", null: false
-    t.integer  "image_id", null: false
+    t.integer  "user_id"
+    t.integer  "image_id"
     t.integer  "parent_id",  default: 0
     t.text     "content",    default: "", null: false
     t.datetime "created_at",              null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20160330082741) do
 
   add_index "comments", ["image_id"], name: "index_comments_on_image_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "follow_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.integer  "category_id"
@@ -61,10 +70,12 @@ ActiveRecord::Schema.define(version: 20160330082741) do
     t.boolean  "admin",           default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "avatar",          default: ""
   end
 
   add_foreign_key "comments", "images"
   add_foreign_key "comments", "users"
+  add_foreign_key "follows", "users"
   add_foreign_key "images", "categories"
   add_foreign_key "images", "users"
   add_foreign_key "likeds", "images"

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :about, :collection, :followers, :followings]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :follow, :about, :collection, :followers, :followings]
 
   def index
     @users = User.all
@@ -45,16 +45,33 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    if current_user
+      if @user.followed?(current_user)
+        Follow.where(user: current_user, follow_id: @user.id).first.destroy
+      else
+        @follow = Follow.create(user:current_user, follow_id: @user.id)
+        @follow.save
+      end
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
   def collection
+    #write somethings
   end
 
   def about
   end
 
   def followers
+    @followers = Follow.where(follow_id: @user.id)
   end
 
   def followings
+    @followings = Follow.where(user: @user)
   end
 
   private
@@ -63,6 +80,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :visible, :admin)
+      params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :visible, :admin, :avatar)
     end
 end

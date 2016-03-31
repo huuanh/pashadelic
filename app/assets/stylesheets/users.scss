@@ -37,6 +37,19 @@
         color: #2E2F30;
         font-weight: 800;
       }
+      .button-follow {
+        padding: 3px 5px;
+        background-color: #10033f;
+        border-radius: 5px;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+        a:hover {
+          color: whitesmoke;
+          text-decoration: none;
+        }
+      }
     }
     .div-border-right {
       border-right: 1px dotted lightgray;
@@ -106,6 +119,40 @@
       padding: 20px;
       border-left: 1px solid lightgray;
       margin-bottom: 3px;
+    }
+  }
+}
+
+.followers-content {
+  margin: 20px 0;
+  display: inline-block;
+  .col-lg-6 {
+    .user-avatar {
+      margin-bottom: 10px;
+      img {
+        width: 90%;
+        border-radius: 10px;
+      }
+    }
+    .user-name {
+      a {
+        padding: 3px 5px;
+        color: #2E2F30;
+        text-decoration: none;
+        font-size: 130%;
+        border-radius: 3px;
+      }
+      .button-follow {
+        background-color: #5bc0de;
+      }
+      .button-follow:hover {
+        background-color: #4da1ba;
+      }
+    }
+    .six-images-list {
+      img {
+        width: 13%;
+      }
     }
   }
 }

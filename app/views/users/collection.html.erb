@@ -1,29 +1,5 @@
 <div class="top-layout-user row">
-  <div class="banner-user row">
-    <img src="http://rockymountainnationalpark.com/sites/all/themes/rmnp/images/bugling-elk-rocky-mountain-national-park.jpg" alt="banner">
-    <%= link_to 'change image banner', '#', class: 'change-image' %>
-  </div>
-  <div class="user-info row">
-    <div class="col col-md-4 div-border-right">
-      <div class="user-avatar col-md-4">
-        <img src="http://photos.pashadelic.com/user/image/129369/mit.jpeg" alt="avatar">
-      </div>
-      <div class="user-name col-md-8">
-        <p><%= @user.name %></p>
-        1 photos | 3 follow
-      </div>
-    </div>
-    <div class="col col-md-4 div-border-right">
-      <h4>Equipment</h4>
-      <h5>Camera</h5>
-      <h5>Len</h5>
-    </div>
-    <div class="col col-md-4">
-      <h4>Recent Activitys</h4>
-      <h5>Collected yutaka.miura.503's photo</h5>
-      <h5>Collected yutaka.miura.503's photo</h5>
-    </div>
-  </div>
+  <%= render 'user_profile', user: @user %>
   <div class="user-member row">
     <ul class="nav nav-tabs" role="tablist">
       <li><a href="<%= user_url(@user) %>">Photo Spots</a></li>

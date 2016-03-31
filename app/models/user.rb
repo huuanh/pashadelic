@@ -14,4 +14,20 @@ class User < ActiveRecord::Base
   def total_images
     Image.where(user: self).count
   end
+
+  def followed?(current_user)
+    Follow.where(user: current_user, follow_id: self.id).count > 0
+  end
+
+  def count_followers
+    Follow.where(follow_id: self.id).count
+  end
+
+  def avatar_url
+    if self.avatar != ''
+      self.avatar
+    else
+      'http://photos.pashadelic.com/user/image/129369/mit.jpeg'
+    end
+  end
 end

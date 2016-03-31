@@ -1,0 +1,22 @@
+<div class="followers-content">
+  <% users.each do |user| %>
+      <div class="col col-lg-6">
+        <div class="row">
+          <div class="user-avatar col-md-4">
+            <%= image_tag(user.avatar_url) %>
+          </div>
+          <div class="user-name col-md-8">
+            <%= render 'follow_button', user: user %>
+            <p><%= link_to user.name, user_path(user) %></p>
+            <%= user.total_images.to_s + ' photos | ' + user.count_followers.to_s + ' follow' %>
+          </div>
+        </div>
+
+        <div class="row six-images-list">
+          <% six_images(user).each do |image| %>
+              <%= image_tag(image.img_url.thumb.url) %>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>
