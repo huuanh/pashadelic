@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :user
+  has_many :comments
 
   validate :image_size_validation
 
@@ -16,6 +17,6 @@ class Image < ActiveRecord::Base
 
   private
   def image_size_validation
-    errors[:image] << "should be less than 1MB" if img_url.size > 1.megabytes
+    errors[:image] << "should be less than 40MB" if img_url.size > 40.megabytes
   end
 end

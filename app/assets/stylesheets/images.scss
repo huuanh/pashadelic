@@ -34,3 +34,72 @@
     margin: 10px 0;
   }
 }
+
+
+//----------------IMAGE SHOW-----------------
+.image-content {
+  background-color: #2E2F30;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  z-index: 99999;
+  img {
+    max-width: 90%;
+    max-height: 80vh;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+}
+
+.image-info {
+  .col-md-8 {
+    border-right: 1px gray dotted;
+    .comment-form {
+      background-color: #e8e8e8;
+      margin: 20px 0;
+      display: inline-block;
+      width: 100%;
+      .user-avatar {
+        float: left;
+        padding: 0 10px 0 0;
+        width: 15%;
+        img {
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+      .form-comment {
+        float: left;
+        width: 85%;
+        textarea {
+          width: 100%;
+        }
+        input {
+          float: right;
+        }
+      }
+    }
+    .comments-list {
+      background-color: #e8e8e8;
+      margin: 10px 0;
+      display: inline-block;
+      width: 100%;
+      .user-avatar {
+        float: left;
+        padding: 0 10px 0 0;
+        width: 15%;
+        img {
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+      .comment-content {
+        width: 85%;
+        //overflow: scroll;
+      }
+    }
+  }
+  .col-md-4 {
+
+  }
+}

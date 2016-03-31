@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :like]
 
   def index
     @images = Image.all
@@ -50,6 +50,14 @@ class ImagesController < ApplicationController
   def search
     @query = params[:query]
     @images = Image.where('description LIKE ?', "%#{params[:query]}%").paginate(:page => params[:page], :per_page => 9)
+  end
+
+  def like
+    if Liked.where(user: current_user, image: @image).count > 0
+      Liked.where(user: current_user, image: @image).first.destroy
+    else
+      Liked.create(user: current_user, image: @image)
+    end
   end
 
   private

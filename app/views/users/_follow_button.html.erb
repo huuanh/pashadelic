@@ -1,6 +1,6 @@
 <div id="follow-button-<%= user.id %>">
   <% if user.followed?(current_user) %>
-      <%= link_to 'unfollow', follow_user_path(user), remote: true, class:'button-follow' %>
+      <%= link_to 'following', follow_user_path(user), remote: true, class:'button-follow' %>
   <% else %>
       <%= link_to 'follow', follow_user_path(user), remote: true, class:'button-follow' %>
   <% end %>

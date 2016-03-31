@@ -18,7 +18,7 @@
           <i class="fa fa-thumbs-up"></i>
         </div>
         <div class="row description-image">
-          <img src="http://res.cloudinary.com/pashadelic/image/upload/cs_srgb,c_fill,h_350,w_350/linvgsedp8xihjp7igfw.jpg" alt="avatar" class="avatar">
+          <%= image_tag (image.user.avatar_url), class: 'avatar' %>
           <%= 'created by ' + image.user.name %>
         </div>
       </div>
