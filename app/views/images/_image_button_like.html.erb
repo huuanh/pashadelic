@@ -1,0 +1,7 @@
+<div id="image-button-like-<%= image.id %>">
+  <% if current_user %>
+      <%= link_to ('<i class="fa fa-thumbs-up ' + current_user.liked?(image).to_s + '"></i>').html_safe, like_image_path(image), remote: true %>
+  <% else %>
+      <%= ('<i class="fa fa-thumbs-up false"></i>').html_safe %>
+  <% end %>
+</div>

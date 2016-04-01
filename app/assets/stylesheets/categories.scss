@@ -56,7 +56,6 @@
     i {
       padding: 10px;
       background-color: rgba(46, 47, 48, 0.58);
-      color: #3c763d;
       position: absolute;
       right: 10px;
       bottom: 10px;
@@ -64,7 +63,12 @@
     }
     i:hover {
       background-color: rgba(46, 47, 48, 0.72);
-      color: #4c8d4d;
+    }
+    .true {
+      color: #68bd4e;
+    }
+    .false {
+      color: gainsboro;
     }
   }
 }

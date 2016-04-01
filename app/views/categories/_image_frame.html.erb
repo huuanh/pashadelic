@@ -3,10 +3,10 @@
       <div class='col col-md-4 category-index-main-div'>
         <div class="row img-on-category-index">
           <%= link_to image_tag(image.img_url.thumb.url), image %>
-          <%= link_to '<i class="fa fa-thumbs-up"></i>'.html_safe, like_image_path(image), remote: true %>
+          <%= render 'images/image_button_like', image: image %>
         </div>
         <div class="description-image">
-          <%= image_tag (image.user.avatar_url), class: 'avatar' %>
+          <%= link_to image_tag(image.user.avatar_url), user_path(image.user), class: 'avatar' %>
           Created by <%= link_to image.user.name, user_path(image.user) %>
           <%= render 'images/image_statistical', image: image %>
         </div>

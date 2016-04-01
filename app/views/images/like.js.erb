@@ -1,1 +1,2 @@
 $("#image-statistical-<%= @image.id %>").replaceWith("<%= j (render 'images/image_statistical', image: @image) %>");
+$("#image-button-like-<%= @image.id %>").replaceWith("<%= j (render 'images/image_button_like', image: @image) %>");

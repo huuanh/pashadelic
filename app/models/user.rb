@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     Follow.where(follow_id: self.id).count
   end
 
+  def liked?(image)
+    Liked.where(user: self, image: image).count > 0
+  end
+
   def avatar_url
     if self.avatar != ''
       self.avatar
