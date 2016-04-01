@@ -1,7 +1,7 @@
 <div class="comments-list row">
   <div class="row">
     <div class="user-avatar">
-      <%= image_tag comment.user.avatar_url %>
+      <%= link_to image_tag(comment.user.avatar_url), user_path(comment.user) %>
     </div>
     <div class="comment-content">
       <div class="user-name"><%= comment.user.name %></div>

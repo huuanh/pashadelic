@@ -49,7 +49,7 @@ class CategoriesController < ApplicationController
 
   private
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.find_by_permalink(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
