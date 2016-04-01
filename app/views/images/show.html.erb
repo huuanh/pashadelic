@@ -19,15 +19,8 @@
           <% end %>
         </div>
       </div>
-      <% @image.comments.each do |comment| %>
-          <div class="comments-list row">
-            <div class="user-avatar">
-              <%= image_tag comment.user.avatar_url %>
-            </div>
-            <div class="comment-content">
-              <%= comment.content %>
-            </div>
-          </div>
+      <% @image.comments.level_0.each do |comment| %>
+        <%= render comment %>
       <% end %>
     </div>
 

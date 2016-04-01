@@ -54,6 +54,7 @@
 .image-info {
   .col-md-8 {
     border-right: 1px gray dotted;
+    margin: 0 10px;
     .comment-form {
       background-color: #e8e8e8;
       margin: 20px 0;
@@ -80,22 +81,33 @@
       }
     }
     .comments-list {
+      border-left: 1px dotted gray;
+      //outline: 5px solid #e8e8e8;
+      padding-left: 20px;
       background-color: #e8e8e8;
       margin: 10px 0;
       display: inline-block;
       width: 100%;
-      .user-avatar {
-        float: left;
-        padding: 0 10px 0 0;
-        width: 15%;
-        img {
-          width: 100%;
-          border-radius: 10px;
+      .row {
+        margin-bottom: 5px;
+        .user-avatar {
+          float: left;
+          padding: 0 10px 0 0;
+          width: 10%;
+          img {
+            width: 100%;
+            border-radius: 10px;
+          }
         }
-      }
-      .comment-content {
-        width: 85%;
-        //overflow: scroll;
+        .comment-content {
+          width: 90%;
+          float: right;
+          //overflow: scroll;
+          .user-name {
+            color: #2E2F30;
+            font-size: 120%;
+          }
+        }
       }
     }
   }

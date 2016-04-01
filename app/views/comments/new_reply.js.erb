@@ -1,0 +1,12 @@
+var form = $('#comment-form-<%= @comment.parent_id %>');
+
+form.html("<%= j (render 'form_reply') %>");
+form.slideDown(350);
+form.find('#comment_content').focus();
+
+form.find('#comment_content').bind('blur', function() {
+    if ($.trim($(this).val()) == "") {
+        form.slideUp(350);
+    }
+});
+

@@ -1,0 +1,20 @@
+<div class="comments-list row">
+  <div class="row">
+    <div class="user-avatar">
+      <%= image_tag comment.user.avatar_url %>
+    </div>
+    <div class="comment-content">
+      <div class="user-name"><%= comment.user.name %></div>
+      <%= comment.content %>
+      <%= link_to '<i class="fa fa-reply"></i>'.html_safe, reply_comment_path(comment), remote: true %>
+    </div>
+  </div>
+  <div id="comment-<%= comment.id %>">
+    <!-- children -->
+    <%= render comment.image.direct_children_comments(comment.level + 1, comment.id) %>
+  </div>
+
+  <div class="row comment-replay-form">
+    <div class="col-md-6" id="comment-form-<%= comment.id %>" style="display:none;"></div>
+  </div>
+</div>

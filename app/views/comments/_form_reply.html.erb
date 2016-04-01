@@ -1,0 +1,11 @@
+<div class="user-avatar">
+  <%= image_tag(current_user.avatar_url) %>
+</div>
+<%= form_for @comment, url: reply_comment_path, remote: true do |f| %>
+  <div class="field">
+    <%=	f.text_area :content, rows: 2, cols: 60, placeholder: 'write a comment here' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

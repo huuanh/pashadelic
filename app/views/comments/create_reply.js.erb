@@ -1,0 +1,2 @@
+$('#comment-<%= @comment.parent_id %>').append("<%= j (render @comment) %>");
+$('#comment-form-<%= @comment.parent_id %>').slideUp(300);
