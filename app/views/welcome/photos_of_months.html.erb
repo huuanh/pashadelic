@@ -1,0 +1,10 @@
+<div class="row">
+  <ul class="nav nav-pills">
+    <li><a href="<%= popular_url %>">Popular</a></li>
+    <li><a href="<%= upcoming_url %>">Upcoming</a></li>
+    <li><a href="<%= photos_of_days_url %>">Photo of days</a></li>
+    <li class="active"><a href="<%= photos_of_months_url %>">Photo of month</a></li>
+  </ul>
+</div>
+
+<%= render 'categories/image_frame', images: photos_of_months %>
