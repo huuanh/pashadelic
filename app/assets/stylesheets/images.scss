@@ -28,10 +28,25 @@
   }
   .image-result {
     padding-right: 15px;
+    margin: 10px 0;
     img {
+      position: relative;
       width: 100%;
     }
-    margin: 10px 0;
+    .location-image {
+      padding-right: 15px;
+      background-color: rgba(242, 242, 242, 0.84);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: none;
+      height: 40px;
+      overflow: hidden;
+      width: 100%;
+      span {
+        text-align: right;
+      }
+    }
   }
 }
 
@@ -113,5 +128,16 @@
   }
   .col-md-4 {
 
+  }
+}
+
+
+//--------------------button like------------------------
+.image-button-like{
+  .true {
+    color: #68bd4e;
+  }
+  .false {
+    color: gray;
   }
 }

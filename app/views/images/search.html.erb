@@ -1,8 +1,23 @@
 <h3><%='Found for: ' + @query %></h3>
 <div class="list-images-result row">
   <% @images.each do |image| %>
-      <div class="image-result col col-md-3">
+      <div class="image-result col col-md-3" id="image-result-<%= image.id %>">
         <%= image_tag(image.img_url.thumb.url) %>
+        <div class="location-image" id="location-image-<%= image.id %>">
+          <span><%= render 'images/image_button_like', image: image %></span>
+          <%= image.description %>
+        </div>
       </div>
+      <script>
+        $('#image-result-<%= image.id %>').mouseenter(function(){
+          $('#location-image-<%= image.id %>').show(300);
+        });
+      </script>
   <% end %>
 </div>
+
+<script>
+  $('.image-result').mouseleave(function(){
+    $('.location-image').hide(300);
+  });
+</script>

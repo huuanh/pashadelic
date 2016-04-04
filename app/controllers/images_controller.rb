@@ -53,19 +53,26 @@ class ImagesController < ApplicationController
   end
 
   def like
-    if Liked.where(user: current_user, image: @image).count > 0
-      Liked.where(user: current_user, image: @image).first.destroy
-    else
-      Liked.create(user: current_user, image: @image)
+    respond_to do |format|
+      if current_user
+        if Liked.where(user: current_user, image: @image).count > 0
+          Liked.where(user: current_user, image: @image).first.destroy
+        else
+          Liked.create(user: current_user, image: @image)
+        end
+        format.js
+      else
+        format.js {render inline: 'sorry, you must sign in to like!!!'}
+      end
     end
   end
 
   private
-    def set_image
-      @image = Image.find(params[:id])
-    end
+  def set_image
+    @image = Image.find(params[:id])
+  end
 
-    def image_params
-      params.require(:image).permit(:category_id, :img_url, :description)
-    end
+  def image_params
+    params.require(:image).permit(:category_id, :img_url, :description)
+  end
 end

@@ -46,18 +46,21 @@ class UsersController < ApplicationController
   end
 
   def follow
-    if current_user
-      if @user.followed?(current_user)
-        Follow.where(user: current_user, follow_id: @user.id).first.destroy
-      else
-        @follow = Follow.create(user:current_user, follow_id: @user.id)
-        @follow.save
-      end
-      respond_to do |format|
+    respond_to do |format|
+      if current_user
+        if @user.followed?(current_user)
+          Follow.where(user: current_user, follow_id: @user.id).first.destroy
+        else
+          @follow = Follow.create(user:current_user, follow_id: @user.id)
+          @follow.save
+        end
         format.js
+      else
+        format.js {render inline: 'alert("you must sign in before follow someone!!");'}
       end
     end
   end
+
 
   def collection
     #write somethings
@@ -75,11 +78,11 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :visible, :admin, :avatar)
-    end
+  def user_params
+    params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :visible, :admin, :avatar)
+  end
 end
