@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20160401101222) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "image_id"
+    t.integer  "user_id",                 null: false
+    t.integer  "image_id",                null: false
     t.integer  "parent_id",  default: 0
     t.text     "content",    default: "", null: false
     t.datetime "created_at",              null: false

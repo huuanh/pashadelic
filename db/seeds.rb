@@ -9,7 +9,7 @@
 User.create!(name: 'bri', username:'bri', email: 'bri@gmail.com', password: '123456', password_confirmation: '123456', admin: true)
 User.create!(name: 'anh', username:'anh', email: 'anh@gmail.com', password: '123456', password_confirmation: '123456')
 
-Category.create!(name: 'other')
-Category.create!(name: 'sky')
-Category.create!(name: 'stress')
-Category.create!(name: 'childhood')
+Category.create!(name: 'other', permalink: 'other')
+Category.create!(name: 'sky', permalink: 'sky')
+Category.create!(name: 'stress', permalink: 'stress')
+Category.create!(name: 'childhood', permalink: 'childhood')
